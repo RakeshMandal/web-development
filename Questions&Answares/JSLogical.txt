@@ -28,3 +28,35 @@ Top javascript questions asked in interview
  {a: {b: {c: "someValue"}}}
 22. Find the missing number from an Array
 23. Find the Dublicate from an Array
+
+I recently completed a technical interview, and here are some key takeaways:
+
+1. React Search Bar Functionality - Implementing it with an API call 
+
+2. Debouncing for performance optimization
+
+3. Lazy Loading - Making the app more efficient 
+
+4. How to improve React performance?
+
+5. JavaScript Output Questions: Event loop, closures, lexical scope, hoisting (detailed explanation required!) 
+
+6. Types vs. Interfaces in TypeScript 
+
+🧵 ...But wait, there's more!
+
+7.React Hooks deep dive: useEffect, useCallback, useMemo, useRef, useState
+
+8. Custom Hooks vs. Utility Functions 
+
+9. Error Handling best practices
+
+10. Popular Array Methods (map & filter) and String Methods (slice, startsWith, splice)
+
+11. Prop Drilling & how to manage state better in React 
+
+12. CSS Positioning - Got a fun challenge with some real-world examples! 
+
+Interview duration was of 1 hr in which I had to join from two devices because laptop camera was not working. 😂 
+
+Got a positive feedback and moved to HM round. Would love to hear how others have tackled similar topics in interviews—let's connect! 
