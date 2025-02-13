@@ -281,6 +281,7 @@ console.log('Min Value is:', indexfind+ " and Index is " +nums.indexOf(indexfind
 */
 
 // 12. count Items
+/*
 let obj = [{
     name:"Apple", count:3
 },
@@ -309,3 +310,61 @@ function countItems(input){
 
 }
 console.log(countItems(obj))
+*/
+
+// 13. Call, Bind and Apply
+
+/*
+let obj = {
+    name:"Rakesh",
+    whatIsDoing: "Searching Job",
+    need:{
+        knowledge: "Knowledge",
+        money: "Money",
+        trip: "Trips"
+    }
+}
+
+function getDetails(priority){
+    console.log(`My name is ${this.name} and ${this.whatIsDoing} for ${this.need.knowledge}, ${this.need.money} and ${this.need.trip} in ${priority}`);
+}
+getDetails.call(obj,"Immediate");
+getDetails.apply(obj,["Immediate"]);
+let bindFunction = getDetails.bind(obj,"Immediate");
+bindFunction()
+*/
+
+// 14. Promises
+/*
+let p1 = new Promise((res,rej)=>{
+    setTimeout(() => {
+        rej("Promise 1 is Reject... OK!")
+    }, 100);
+});
+let p2 = new Promise((res,rej)=>{
+    setTimeout(() => {
+        res("Promise 2 is Resolved... OK!")
+    }, 300);
+});
+let p3 = new Promise((res,rej)=>{
+    setTimeout(() => {
+        rej("Promise 3 is Reject... OK!")
+    }, 200);
+});
+
+// all(),allSetteled(),race(),any()
+Promise.all([p1,p2,p3])
+.then(data=>console.log(data))
+.catch(err=>console.error(err));
+Promise.allSettled([p1,p2,p3])
+.then(data=>console.log(data))
+.catch(err=>console.error(err));
+Promise.race([p1,p2,p3])
+.then(data=>console.log(data))
+.catch(err=>console.error(err));
+Promise.any([p1,p2,p3])
+.then(data=>console.log(data))
+.catch(err=>console.error(err))
+*/
+
+// 15. 
