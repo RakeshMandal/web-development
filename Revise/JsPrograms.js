@@ -62,6 +62,7 @@ console.log(result);
 
 // 3. Write a Function to check that string is Palindrom or not
 /*
+// 1st way to iterate whole string
 let str = "malayal";
 
 function FindPalindrom(str){
@@ -80,6 +81,22 @@ function FindPalindrom(str){
 
 }
 const result = FindPalindrom(str)
+
+// 2nd way iterate half of the string
+
+function isPalindrome(str) {
+    const len = str.length;
+    for (let i = 0; i < len / 2; i++) {
+        if (str[i] !== str[len - 1 - i]) {
+            console.log("Not Palindrome");
+            return;
+        }
+    }
+    console.log("Palindrome");
+}
+
+isPalindrome("malayalam"); // ✅ Palindrome
+isPalindrome("hello");     // ❌ Not Palindrome
 */
 
 // 4. Write a Function to sort an Array ( Bubble Sort Algorithm....)
@@ -451,7 +468,191 @@ function checkPrime(number){
 console.log(checkPrime(10))
 */
 
+// 18. const arr =[1,2,3,4,5];
+// output:- [120,60,40,30,24]
+/*
+const arr =[1,2,3,4,5];
+function getProduct(arr){
+let result = []
+for(let i=0;i<arr.length;i++){
+let product = 1
+for(let j=0;j<arr.length;j++){
+if(j !== i){
+product *= arr[j]
+}
+}
+result.push(product)
+}
+return result;
+}
+console.log(getProduct(arr))
+*/
 
+// 19. //add(2)(3)
+//add(2,3)
+/*
+function add(a,b){
+    if(b){
+         return a+b
+       }
+   return function(c){
+           return a+c
+       }
+   
+}
+console.log(add(2)(3))
+*/
+
+// 20. Compare two array and find unique element from these array
+
+/*
+let array1 = [
+  { id: 1, name: "user1", age: 25 },
+  { id: 2, name: "user2", age: 30 },
+  { id: 3, name: "user3", age: 35 }
+];
+ 
+let array2 = [
+  { id: 2, name: "user2", age: 30},
+  { id: 3, name: "user3", age: 35 },    
+  { id: 4, name: "user4", age: 50 }
+];
+
+let arr = [...array1,...array2]
+function getData(arr){
+    let map={}
+    let count=1
+    for(let item of arr){
+        let id = item.id
+        if(!map[id]){
+            map[id] = {count,item}
+        }
+        else{
+            map[id].count++
+        }
+    }
+    let result=[]
+    for(let id in map){
+        if(map[id].count === 1){
+            result.push(map[id].item)
+        }
+    }
+    return result
+}
+console.log(getData(arr))
+
+*/
+
+// 21. Memoization function
+/*
+const memo = (fun)=>{
+    const cache ={};
+    return function(n){
+        if(cache[n]){
+            console.log("From Caching...");
+            return cache[n]
+        }
+        console.log("Calculating...");
+        const result = fun(n)
+        cache[n]=result
+        return result
+    }
+}
+const squre = memo((n)=>n*n)
+console.log(squre(4)); // Output: Calculating... 16
+console.log(squre(4)); // Output: From cache 16
+*/
+
+// 22. currying with extra param
+/*
+function curry(fn) {
+    const requiredArgs = fn.length;
+    function curried(...args) {
+      if (args.length >= requiredArgs) {
+        return fn(...args);
+      } else {
+        return function(...next) {
+          return curried(...args, ...next);
+        };
+      }
+    }
+    return curried;
+  }
+
+  function sum(a, b, c, d) {
+    return a + b + c + d;
+  }
+  
+  const curriedSum = curry(sum);
+  
+  console.log(curriedSum(1, 2, 3, 4));       // 10
+  console.log(curriedSum(1)(2)(3)(4));       // 10
+  console.log(curriedSum(1, 2)(3, 4));       // 10
+  console.log(curriedSum(1)(2, 3, 4));       // 10
+  console.log(curriedSum(1, 2, 3)(4));       // 10
+  
+*/
+
+// Three Sum problem
+//console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+// Output: [ [ -1, -1, 2 ], [ -1, 0, 1 ] ]
+/*
+function threeSum(arr){
+    let result = new Set()
+    let n = arr.length
+    for(let i=0;i<n-2;i++){
+        for(let j=i+1;j<n-1;j++){
+            for(let k=j+1;k<n;k++){
+                if(arr[i]+arr[j]+arr[k] === 0){
+                    let triplet = [arr[i],arr[j],arr[k]].sort((a,b)=>a-b)
+                    result.add(JSON.stringify(triplet))
+                }
+            }
+        }
+    }
+    return Array.from(result).map(JSON.parse)
+}
+
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+// Output: [ [ -1, -1, 2 ], [ -1, 0, 1 ] ]
+*/
+
+/*
+
+function flattenTexts(data){
+    let result=[]
+  function flat(current){
+      if(current.text){
+          result.push(current.text)
+      }
+      if(current.children && current.children.length>0){
+          current.children.forEach(flat)
+      }
+  }
+  flat(data)
+  return result
+}
+
+const data = {
+  id: "123",
+  children: [
+    { id: "124", children: [], text: "Child 1" },
+    { id: "125", children: [], text: "Child 2" },
+    {
+      id: "126",
+      children: [
+        { id: "124", children: [], text: "Child 44" },
+        { id: "125", children: [], text: "Child 45" }
+      ]
+    }
+  ],
+  text: "Parent"
+};
+
+console.log(flattenTexts(data));
+// Output: ["Parent", "Child 1", "Child 2", "Child 44", "Child 45"]
+
+*/
 
 Day 1-2: HTML & CSS (Fundamentals & Layouts)
 📌 Focus on:

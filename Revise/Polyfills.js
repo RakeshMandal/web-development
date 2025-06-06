@@ -148,3 +148,25 @@ Promise.myAll =(arr)=>{
 Promise.myAll([p1,p2,p3])
 .then(data=>console.log(data))
 .catch(err=>console.error(err));
+
+// Polyfill for JSON.stringify
+
+/*
+function jsonStringify(val){
+if(val === null) return 'null;
+if(typeof val === 'string') return `${val}`;
+if(typeof val === 'number' || typeof val === 'boolean') return String(val);
+if(Array.isArray(val)){
+return `[${val.map(jsonStringify)}]`
+}
+if(typeof val === 'object'){
+return `Object.entries(val)
+.map(([k,v])=>`"${k}":jsonStringify(v)`)
+`
+}
+return undefined
+}
+
+console.log(jsonStringify({ name: "Alice", age: 25, likes: ["JS", "React"] }));
+// Output: {"name":"Alice","age":25,"likes":["JS","React"]}
+*/
