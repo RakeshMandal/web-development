@@ -1,14 +1,14 @@
 let obj = {
-    name:"Rakesh",
+    name: "Rakesh",
     whatIsDoing: "Searching Job",
-    need:{
+    need: {
         knowledge: "Knowledge",
         money: "Money",
         trip: "Trips"
     }
 }
 
-function getDetails(priority){
+function getDetails(priority) {
     console.log(`My name is ${this.name} and ${this.whatIsDoing} for ${this.need.knowledge}, ${this.need.money} and ${this.need.trip} in ${priority}`);
 }
 
@@ -59,7 +59,7 @@ binDaata();
 
 // 4. map Polyfill
 
-let arr = [1,2,3,4,10,5,30];
+let arr = [1, 2, 3, 4, 10, 5, 30];
 /*
 Array.prototype.myMap = function(cb){
     let result=[]
@@ -111,62 +111,44 @@ console.log(addAll);
 
 // 6. Promise.all() Polyfill
 
-let p1 = new Promise((res,rej)=>{
+let p1 = new Promise((res, rej) => {
     setTimeout(() => {
         res("Promise 1 is Resolve... OK!")
     }, 100);
 });
-let p2 = new Promise((res,rej)=>{
+let p2 = new Promise((res, rej) => {
     setTimeout(() => {
         res("Promise 2 is Resolved... OK!")
     }, 300);
 });
-let p3 = new Promise((res,rej)=>{
+let p3 = new Promise((res, rej) => {
     setTimeout(() => {
         res("Promise 3 is Resolve... OK!")
     }, 200);
 });
 
-Promise.myAll =(arr)=>{
-    let result=[]
+Promise.myAll = (arr) => {
+    let result = []
     let completedPromise = 0;
-    return new Promise((resolve,reject)=>{
-        arr.forEach((promise,index)=>{
-            promise.then((data)=>{
+    return new Promise((resolve, reject) => {
+        arr.forEach((promise, index) => {
+            promise.then((data) => {
                 result[index] = data
                 completedPromise++
-                if(completedPromise === arr.length){
+                if (completedPromise === arr.length) {
                     resolve(result)
                 }
             })
-            .catch(err=>reject(err))
+                .catch(err => reject(err))
         })
     })
 
 }
 
-Promise.myAll([p1,p2,p3])
-.then(data=>console.log(data))
-.catch(err=>console.error(err));
+Promise.myAll([p1, p2, p3])
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
 
 // Polyfill for JSON.stringify
 
-/*
-function jsonStringify(val){
-if(val === null) return 'null;
-if(typeof val === 'string') return `${val}`;
-if(typeof val === 'number' || typeof val === 'boolean') return String(val);
-if(Array.isArray(val)){
-return `[${val.map(jsonStringify)}]`
-}
-if(typeof val === 'object'){
-return `Object.entries(val)
-.map(([k,v])=>`"${k}":jsonStringify(v)`)
-`
-}
-return undefined
-}
 
-console.log(jsonStringify({ name: "Alice", age: 25, likes: ["JS", "React"] }));
-// Output: {"name":"Alice","age":25,"likes":["JS","React"]}
-*/

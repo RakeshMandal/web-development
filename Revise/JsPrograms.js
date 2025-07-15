@@ -315,6 +315,32 @@ for(let item of nums){
 console.log('Min Value is:', indexfind+ " and Index is " +nums.indexOf(indexfind))
 */
 
+/*
+
+let arr = [2,1,3,5,6,4]
+function find(arr){
+    let max = arr[0]
+    let min = arr[0]
+    let second = -Infinity
+    for(let item of arr){
+        if(max<item){
+           second = max
+            max = item
+            
+        }else if(second<max && second<item){
+            second = item
+        }
+        if(min>item){
+            min=item
+        }
+    }
+    return `Max ${max} Min ${min} Second ${second}`
+}
+console.log(find(arr))
+
+*/
+
+
 // 12. count Items
 /*
 let obj = [{
@@ -468,7 +494,7 @@ function checkPrime(number){
 console.log(checkPrime(10))
 */
 
-// 18. const arr =[1,2,3,4,5];
+// 19. const arr =[1,2,3,4,5];
 // output:- [120,60,40,30,24]
 /*
 const arr =[1,2,3,4,5];
@@ -488,7 +514,7 @@ return result;
 console.log(getProduct(arr))
 */
 
-// 19. //add(2)(3)
+// 20. //add(2)(3)
 //add(2,3)
 /*
 function add(a,b){
@@ -503,7 +529,7 @@ function add(a,b){
 console.log(add(2)(3))
 */
 
-// 20. Compare two array and find unique element from these array
+// 21. Compare two array and find unique element from these array
 
 /*
 let array1 = [
@@ -517,6 +543,8 @@ let array2 = [
   { id: 3, name: "user3", age: 35 },    
   { id: 4, name: "user4", age: 50 }
 ];
+
+// 1st way
 
 let arr = [...array1,...array2]
 function getData(arr){
@@ -541,9 +569,22 @@ function getData(arr){
 }
 console.log(getData(arr))
 
+// 2nd way
+
+let arr =  [...array1, ...array2]
+
+function findThe(arr){
+  let count ={}
+  for(let item of arr){
+      count[item.id] =count[item.id]?count[item.id]+1:1
+  }
+ return arr.filter((item)=>count[item.id]===1)
+}
+console.log(findThe(arr))
+
 */
 
-// 21. Memoization function
+// 22. Memoization function
 /*
 const memo = (fun)=>{
     const cache ={};
@@ -563,7 +604,7 @@ console.log(squre(4)); // Output: Calculating... 16
 console.log(squre(4)); // Output: From cache 16
 */
 
-// 22. currying with extra param
+// 23. currying with extra param
 /*
 function curry(fn) {
     const requiredArgs = fn.length;
@@ -593,7 +634,7 @@ function curry(fn) {
   
 */
 
-// Three Sum problem
+// 24 Three Sum problem
 //console.log(threeSum([-1, 0, 1, 2, -1, -4]));
 // Output: [ [ -1, -1, 2 ], [ -1, 0, 1 ] ]
 /*
@@ -618,7 +659,7 @@ console.log(threeSum([-1, 0, 1, 2, -1, -4]));
 */
 
 /*
-
+// 25
 function flattenTexts(data){
     let result=[]
   function flat(current){
@@ -652,6 +693,46 @@ const data = {
 console.log(flattenTexts(data));
 // Output: ["Parent", "Child 1", "Child 2", "Child 44", "Child 45"]
 
+*/
+
+
+/*
+
+// 26 
+function jsonStringify(val){
+if(val === null) return 'null;
+if(typeof val === 'string') return `${val}`;
+if(typeof val === 'number' || typeof val === 'boolean') return String(val);
+if(Array.isArray(val)){
+return `[${val.map(jsonStringify)}]`
+}
+if(typeof val === 'object'){
+return `Object.entries(val)
+.map(([k,v])=>`"${k}":jsonStringify(v)`)
+`
+}
+return undefined
+}
+
+console.log(jsonStringify({ name: "Alice", age: 25, likes: ["JS", "React"] }));
+// Output: {"name":"Alice","age":25,"likes":["JS","React"]}
+*/
+
+/*
+// 27
+
+const arr = "aaabbbbccccaaaa";
+expected output = [ 'a', 'b', 'c', 'a' ]
+function unq(arr){
+    let newData = []
+    for(let i=0;i<arr.length;i++){
+        if(i === 0 || arr[i] !== arr[i-1]){
+            newData.push(arr[i])
+        }
+    }
+    return newData
+}
+console.log(unq(arr))
 */
 
 Day 1-2: HTML & CSS (Fundamentals & Layouts)
