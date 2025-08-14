@@ -735,6 +735,67 @@ function unq(arr){
 console.log(unq(arr))
 */
 
+// 28.
+
+/*
+ let arr=[0,1,2,1,1,0,0,2,1,0,0,2];
+ //print this as [0,0,0,0,0,2,2,2,1,1,1,1]
+ function getData(arr){
+    let count1=0,count2=0,count3=0;
+    for(let item of arr){
+        if(item===0) count1++
+        else if(item===1) count2++
+        else if(item===2) count3++
+    }
+    return[
+        ...Array(count1).fill(0),
+        ...Array(count2).fill(2),
+        ...Array(count3).fill(1)
+        ]
+ }
+ console.log(getData(arr))
+*/
+
+// 29. Generate random characters upto 8
+
+/*
+let char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+let length = 8
+function randomChar(char,length){
+   let randomChars='';
+  for(let i=0;i<length;i++){
+       randomChars += char.charAt(Math.random()*char.length)
+  }
+   return randomChars
+}
+console.log(randomChar(char,length))
+*/
+
+/// 30 Group anagrams from an array of strings.
+/*
+function groupAnagrams(words) {
+  const map = new Map();
+
+  for (let word of words) {
+    // Sort letters in word to create a unique key for anagrams
+    const key = word.split('').sort().join('');
+    
+    if (!map.has(key)) {
+      map.set(key, []);
+    }
+    map.get(key).push(word);
+  }
+
+  return Array.from(map.values());
+}
+
+// Example
+const input = ["car", "arc", "map", "hell"];
+console.log(groupAnagrams(input));
+// Output: [ [ 'car', 'arc' ], [ 'map' ], [ 'hell' ] ]
+
+*/
+
 Day 1-2: HTML & CSS (Fundamentals & Layouts)
 📌 Focus on:
 
